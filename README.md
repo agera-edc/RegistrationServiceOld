@@ -1,2 +1,2 @@
-# MinimumViableDataspace
-Temporary repository to get started with the MVD
+# RegistrationService
+Temporary repository to get started with the registration service for the MVD
