@@ -22,6 +22,7 @@ val edcVersion: String by project
 val edcGroup: String by project
 
 dependencies {
+    implementation(project(":extensions:api:enrollment"))
     implementation("${edcGroup}:core:${edcVersion}")
     implementation("${edcGroup}:observability-api:${edcVersion}")
     implementation("${edcGroup}:filesystem-configuration:${edcVersion}")
@@ -30,10 +31,6 @@ dependencies {
     // API key authentication (also used for CORS support)
     implementation("${edcGroup}:auth-tokenbased:${edcVersion}")
 
-    // Federated catalog
-    implementation("${edcGroup}:catalog-cache:${edcVersion}")
-    implementation("${edcGroup}:catalog-node-directory-memory:${edcVersion}")
-    implementation("${edcGroup}:catalog-cache-store-memory:${edcVersion}")
 }
 
 application {
