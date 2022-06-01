@@ -1,10 +1,10 @@
-package org.eclipse.mvd.registration.api;
+package org.eclipse.dataspaceconnector.registration.api;
 
+import org.eclipse.dataspaceconnector.registration.api.enrollment.HealthApiController;
 import org.eclipse.dataspaceconnector.spi.WebService;
 import org.eclipse.dataspaceconnector.spi.system.Inject;
 import org.eclipse.dataspaceconnector.spi.system.ServiceExtension;
 import org.eclipse.dataspaceconnector.spi.system.ServiceExtensionContext;
-import org.eclipse.mvd.registration.api.enrollment.EnrollmentApiController;
 
 public class RegistrationServiceApiExtension implements ServiceExtension {
     @Inject
@@ -12,7 +12,7 @@ public class RegistrationServiceApiExtension implements ServiceExtension {
 
     @Override
     public void initialize(ServiceExtensionContext context) {
-        var controller = new EnrollmentApiController();
+        var controller = new HealthApiController();
         webService.registerResource(controller);
     }
 }

@@ -29,4 +29,18 @@ jobs:
 
       - uses: ./.github/actions/gradle-setup
 
-      - run: ./gradlew build
+      - name: 'Build launcher'
+        run: ./gradlew :launcher:shadowJar
+
+      - name: 'Run EDC instances in docker-compose'
+        run: docker-compose up --build --detach
+        timeout-minutes: 10
+
+      - name: 'Unit and system tests'
+        run: ./gradlew test
+        timeout-minutes: 10
+
+      - name: 'docker-compose logs'
+        run: docker-compose logs
+        if: always()
+
