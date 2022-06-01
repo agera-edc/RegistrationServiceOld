@@ -16,10 +16,10 @@ jobs:
       - uses: actions/checkout@v2
       - uses: ./.github/actions/gradle-setup
 
-      - name: Generate OpenAPI definitions from code
+      - name: Generate OpenAPI definition from code
         run: ./gradlew resolve
 
-      - name: Check OpenAPI definitions match code
+      - name: Check OpenAPI definition match code
         run: git diff --exit-code
 
   Build:
