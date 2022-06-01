@@ -1,0 +1,20 @@
+# -buster is required to have apt available
+FROM openjdk:17-slim-buster
+
+# by default curl is not available, so install it
+RUN apt update && apt install curl -y
+
+WORKDIR /app
+COPY ./build/libs/registration-service.jar /app
+
+EXPOSE 8181
+EXPOSE 9191
+
+# health status is determined by the availability of the /health endpoint
+HEALTHCHECK --interval=5s --timeout=5s --retries=10 CMD curl --fail -X GET http://localhost:8181/api/check/health || exit 1
+
+ENTRYPOINT java \
+    -Djava.security.edg=file:/dev/.urandom \
+    -Dweb.http.port="8181" \
+    -Dweb.http.path="/api" \
+    -jar registration-service.jar
