@@ -22,7 +22,7 @@ jobs:
       - name: Check OpenAPI definition match code
         run: git diff --exit-code
 
-  Build:
+  Test:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -32,7 +32,7 @@ jobs:
       - name: 'Build launcher'
         run: ./gradlew :launcher:shadowJar
 
-      - name: 'Run EDC instances in docker-compose'
+      - name: 'Run application in docker-compose'
         run: docker-compose up --build --detach
         timeout-minutes: 10
 
