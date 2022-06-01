@@ -22,7 +22,7 @@ val edcVersion: String by project
 val edcGroup: String by project
 
 dependencies {
-    implementation(project(":extensions:api:enrollment"))
+    implementation(project(":extensions:registration-service"))
     implementation("${edcGroup}:core:${edcVersion}")
     implementation("${edcGroup}:observability-api:${edcVersion}")
     implementation("${edcGroup}:filesystem-configuration:${edcVersion}")

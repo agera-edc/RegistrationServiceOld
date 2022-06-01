@@ -1,0 +1,32 @@
+name: Test Code (Style, Tests)
+
+on:
+  push:
+  pull_request:
+    branches: [ main ]
+    paths-ignore:
+      - '**.md'
+      - 'docs/**'
+
+jobs:
+
+  OpenAPI-Definitions:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: ./.github/actions/gradle-setup
+
+      - name: Generate OpenAPI definitions from code
+        run: ./gradlew resolve
+
+      - name: Check OpenAPI definitions match code
+        run: git diff --exit-code
+
+  Build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      - uses: ./.github/actions/gradle-setup
+
+      - run: ./gradlew build
