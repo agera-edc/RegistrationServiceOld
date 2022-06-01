@@ -38,7 +38,6 @@ application {
 }
 
 tasks.withType<com.github.jengelman.gradle.plugins.shadow.tasks.ShadowJar> {
-    exclude("**/pom.properties", "**/pom.xml")
     mergeServiceFiles()
-    archiveFileName.set("registration-service.jar")
+    archiveFileName.set("app.jar")
 }

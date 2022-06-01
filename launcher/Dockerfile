@@ -1,20 +1,29 @@
 # -buster is required to have apt available
 FROM openjdk:17-slim-buster
 
-# by default curl is not available, so install it
-RUN apt update && apt install curl -y
+# Optional JVM arguments, such as memory settings
+ARG JVM_ARGS=""
+
+# Install curl, then delete apt indexes to save image space
+RUN apt update \
+    && apt install -y curl \
+    && rm -rf /var/cache/apt/archives /var/lib/apt/lists
 
 WORKDIR /app
-COPY ./build/libs/registration-service.jar /app
+COPY ./build/libs/app.jar /app
 
 EXPOSE 8181
 EXPOSE 9191
+EXPOSE 8282
 
 # health status is determined by the availability of the /health endpoint
-HEALTHCHECK --interval=5s --timeout=5s --retries=10 CMD curl --fail -X GET http://localhost:8181/api/check/health || exit 1
+HEALTHCHECK --interval=5s --timeout=5s --retries=10 CMD curl -H "X-Api-Key: $EDC_API_AUTH_KEY" --fail http://localhost:8181/api/check/health
 
-ENTRYPOINT java \
-    -Djava.security.edg=file:/dev/.urandom \
-    -Dweb.http.port="8181" \
-    -Dweb.http.path="/api" \
-    -jar registration-service.jar
+ENV WEB_HTTP_PORT="8181"
+ENV WEB_HTTP_PATH="/api"
+
+# Use "exec" for graceful termination (SIGINT) to reach JVM.
+# ARG can not be used in ENTRYPOINT so storing value in an ENV variable
+ENV ENV_JVM_ARGS=$JVM_ARGS
+ENTRYPOINT [ "sh", "-c", \
+    "exec java ${ENV_JVM_ARGS} -jar app.jar"]
