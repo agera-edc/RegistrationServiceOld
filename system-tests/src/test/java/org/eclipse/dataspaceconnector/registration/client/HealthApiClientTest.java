@@ -22,7 +22,7 @@ import java.time.Duration;
 import static org.awaitility.Awaitility.await;
 
 public class HealthApiClientTest {
-    static final String API_URL = "http://localhost:8181/ap";
+    static final String API_URL = "http://localhost:8181/api";
 
     ApiClient apiClient = ApiClientFactory.createApiClient(API_URL);
     HealthApi healthApi = new HealthApi(apiClient);
