@@ -21,6 +21,7 @@ import java.time.Duration;
 
 import static org.awaitility.Awaitility.await;
 
+@IntegrationTest
 public class HealthApiClientTest {
     static final String API_URL = "http://localhost:8181/api";
 
