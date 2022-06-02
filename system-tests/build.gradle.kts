@@ -18,7 +18,6 @@ plugins {
 
 val awaitility: String by project
 val jupiterVersion: String by project
-val storageBlobVersion: String by project
 val assertj: String by project
 
 dependencies {

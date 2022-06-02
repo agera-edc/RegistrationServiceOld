@@ -1,4 +1,4 @@
-package org.eclipse.dataspaceconnector.registration.api.enrollment;
+package org.eclipse.dataspaceconnector.registration.api;
 
 import io.swagger.v3.oas.annotations.OpenAPIDefinition;
 import io.swagger.v3.oas.annotations.info.Info;

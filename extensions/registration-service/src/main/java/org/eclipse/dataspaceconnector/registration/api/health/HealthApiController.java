@@ -1,4 +1,4 @@
-package org.eclipse.dataspaceconnector.registration.api.enrollment;
+package org.eclipse.dataspaceconnector.registration.api.health;
 
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.ws.rs.Consumes;
