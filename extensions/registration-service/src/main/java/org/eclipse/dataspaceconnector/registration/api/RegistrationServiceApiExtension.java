@@ -6,6 +6,9 @@ import org.eclipse.dataspaceconnector.spi.system.Inject;
 import org.eclipse.dataspaceconnector.spi.system.ServiceExtension;
 import org.eclipse.dataspaceconnector.spi.system.ServiceExtensionContext;
 
+/**
+ * EDC extension to boot the services used by the Registration Service.
+ */
 public class RegistrationServiceApiExtension implements ServiceExtension {
     @Inject
     private WebService webService;

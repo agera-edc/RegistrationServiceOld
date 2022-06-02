@@ -7,6 +7,9 @@ import jakarta.ws.rs.Path;
 import jakarta.ws.rs.Produces;
 import jakarta.ws.rs.core.Response;
 
+/**
+ * Simple API controller to test service is available.
+ */
 @Tag(name = "Health")
 @Produces({"application/json"})
 @Consumes({"application/json"})
