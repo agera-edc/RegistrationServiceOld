@@ -1,6 +1,6 @@
 package org.eclipse.dataspaceconnector.registration.api;
 
-import org.eclipse.dataspaceconnector.registration.api.enrollment.HealthApiController;
+import org.eclipse.dataspaceconnector.registration.api.health.HealthApiController;
 import org.eclipse.dataspaceconnector.spi.WebService;
 import org.eclipse.dataspaceconnector.spi.system.Inject;
 import org.eclipse.dataspaceconnector.spi.system.ServiceExtension;

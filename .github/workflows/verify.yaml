@@ -39,6 +39,14 @@ jobs:
       - name: 'Unit and system tests'
         run: ./gradlew test
         timeout-minutes: 10
+        env:
+          INTEGRATION_TEST: true
+
+      - name: 'Publish Test Results'
+          uses: EnricoMi/publish-unit-test-result-action@v1
+          if: always()
+          with:
+            files: "**/test-results/**/*.xml"
 
       - name: 'docker-compose logs'
         run: docker-compose logs
