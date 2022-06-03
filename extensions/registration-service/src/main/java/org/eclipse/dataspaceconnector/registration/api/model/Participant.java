@@ -16,6 +16,13 @@ public class Participant {
     @JsonProperty("supportedProtocols")
     private final List<String> supportedProtocols;
 
+    /**
+     * Constructs a new instance of {@link Participant}
+     *
+     * @param name                  name of the participant
+     * @param targetUrl             url of the participant EDC instance
+     * @param supportedProtocols    protocols supported by the participant
+     */
     @JsonCreator
     public Participant(@JsonProperty("name") String name, @JsonProperty("url") String targetUrl, @JsonProperty("supportedProtocols") List<String> supportedProtocols) {
         this.name = name;

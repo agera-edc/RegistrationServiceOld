@@ -1,6 +1,8 @@
 package org.eclipse.dataspaceconnector.registration.api;
 
 import org.eclipse.dataspaceconnector.registration.api.model.Participant;
+import org.eclipse.dataspaceconnector.spi.monitor.ConsoleMonitor;
+import org.eclipse.dataspaceconnector.spi.monitor.Monitor;
 import org.eclipse.dataspaceconnector.spi.types.TypeManager;
 import org.jetbrains.annotations.NotNull;
 import org.junit.jupiter.api.Test;
@@ -13,6 +15,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 class FileBasedRegistrationServiceTest {
 
     TypeManager typeManager = new TypeManager();
+    Monitor monitor = new ConsoleMonitor();
 
     @Test
     void listParticipants_empty() {
@@ -34,6 +37,6 @@ class FileBasedRegistrationServiceTest {
         var sampleFile = getClass().getClassLoader().getResource("test-participant1.json");
         assertThat(sampleFile).isNotNull();
         var nodeJsonDir = Path.of(sampleFile.getPath()).getParent();
-        return new FileBasedRegistrationService(nodeJsonDir, nodeJsonPrefix1, typeManager);
+        return new FileBasedRegistrationService(nodeJsonDir, nodeJsonPrefix1, typeManager, monitor);
     }
 }

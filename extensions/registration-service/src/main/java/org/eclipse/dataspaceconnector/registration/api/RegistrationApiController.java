@@ -6,6 +6,7 @@ import jakarta.ws.rs.GET;
 import jakarta.ws.rs.Path;
 import jakarta.ws.rs.Produces;
 import org.eclipse.dataspaceconnector.registration.api.model.Participant;
+import org.eclipse.dataspaceconnector.spi.monitor.Monitor;
 
 import java.util.List;
 
@@ -19,14 +20,23 @@ import java.util.List;
 public class RegistrationApiController {
 
     private final RegistrationService service;
+    private final Monitor monitor;
 
-    public RegistrationApiController(RegistrationService service) {
+    /**
+     * Constructs an instance of {@link RegistrationApiController}
+     *
+     * @param service   service handling the registration service logic.
+     * @param monitor   logging monitor.
+     */
+    public RegistrationApiController(RegistrationService service, Monitor monitor) {
         this.service = service;
+        this.monitor = monitor;
     }
 
     @Path("/participants")
     @GET
     public List<Participant> listParticipants() {
+        monitor.info("List all participants of the dataspace.");
         return service.listParticipants();
     }
 }

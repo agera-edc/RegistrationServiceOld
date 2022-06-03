@@ -5,7 +5,6 @@ import org.eclipse.dataspaceconnector.spi.WebService;
 import org.eclipse.dataspaceconnector.spi.system.Inject;
 import org.eclipse.dataspaceconnector.spi.system.ServiceExtension;
 import org.eclipse.dataspaceconnector.spi.system.ServiceExtensionContext;
-import org.eclipse.dataspaceconnector.spi.types.TypeManager;
 
 import java.nio.file.Path;
 import java.util.Objects;
@@ -14,6 +13,7 @@ import java.util.Objects;
  * EDC extension to boot the services used by the Registration Service.
  */
 public class RegistrationServiceApiExtension implements ServiceExtension {
+
     @Inject
     private WebService webService;
 
@@ -24,8 +24,9 @@ public class RegistrationServiceApiExtension implements ServiceExtension {
 
         webService.registerResource(new HealthApiController());
 
-        TypeManager typeManager = context.getTypeManager();
-        RegistrationService service = new FileBasedRegistrationService(nodeJsonPath, nodeJsonPrefix, typeManager);
-        webService.registerResource(new RegistrationApiController(service));
+        var typeManager = context.getTypeManager();
+        var monitor= context.getMonitor();
+        RegistrationService service = new FileBasedRegistrationService(nodeJsonPath, nodeJsonPrefix, typeManager, monitor);
+        webService.registerResource(new RegistrationApiController(service, monitor));
     }
 }
