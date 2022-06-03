@@ -18,7 +18,7 @@ import java.util.List;
 @Path("/registry")
 public class RegistrationApiController {
 
-    private RegistrationService service;
+    private final RegistrationService service;
 
     public RegistrationApiController(RegistrationService service) {
         this.service = service;

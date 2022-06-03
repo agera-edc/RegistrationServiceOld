@@ -6,7 +6,6 @@ plugins {
 val rsApi : String by project
 val edcVersion: String by project
 val edcGroup: String by project
-val awaitility: String by project
 val jupiterVersion: String by project
 val assertj: String by project
 

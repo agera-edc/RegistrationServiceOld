@@ -11,7 +11,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 /**
- * Registration service implementation fetching participants list from json files.
+ * Implementation of registration service interface that fetches participants list from json files.
  */
 public class FileBasedRegistrationService implements RegistrationService {
 
