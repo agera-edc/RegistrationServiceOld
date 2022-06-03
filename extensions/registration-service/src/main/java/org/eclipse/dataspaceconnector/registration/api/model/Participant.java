@@ -24,14 +24,14 @@ public class Participant {
     }
 
     public String getTargetUrl() {
-        return this.targetUrl;
+        return targetUrl;
     }
 
     public List<String> getSupportedProtocols() {
-        return this.supportedProtocols;
+        return supportedProtocols;
     }
 
     public String getName() {
-        return this.name;
+        return name;
     }
 }
