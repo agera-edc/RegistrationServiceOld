@@ -49,7 +49,7 @@ public class FileBasedRegistrationService implements RegistrationService {
         }
     }
 
-    private Participant mapToParticipant(Path path){
+    private Participant mapToParticipant(Path path) {
         try {
             return typeManager.readValue(Files.readString(path), Participant.class);
         } catch (IOException e) {
