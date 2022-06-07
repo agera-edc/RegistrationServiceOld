@@ -10,7 +10,7 @@ paths:
       operationId: listParticipants
       responses:
         default:
-          description: default response
+          description: Gets all dataspace participants.
           content:
             application/json:
               schema:

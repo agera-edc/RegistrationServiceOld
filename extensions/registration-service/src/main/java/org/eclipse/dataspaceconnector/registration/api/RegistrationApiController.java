@@ -1,5 +1,9 @@
 package org.eclipse.dataspaceconnector.registration.api;
 
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.media.Content;
+import io.swagger.v3.oas.annotations.media.Schema;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.ws.rs.Consumes;
 import jakarta.ws.rs.GET;
@@ -40,6 +44,9 @@ public class RegistrationApiController {
      */
     @Path("/participants")
     @GET
+    @Operation(responses = {
+            @ApiResponse(description = "Gets all dataspace participants.")
+    })
     public List<Participant> listParticipants() {
         monitor.info("List all participants of the dataspace.");
         return service.listParticipants();
