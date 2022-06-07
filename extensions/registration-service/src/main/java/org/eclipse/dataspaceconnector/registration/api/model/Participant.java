@@ -13,7 +13,7 @@ import java.util.List;
 public class Participant {
 
     private String name;
-    private String targetUrl;
+    private String url;
     private final List<String> supportedProtocols = new ArrayList<>();
 
     private Participant() {
@@ -23,8 +23,8 @@ public class Participant {
         return name;
     }
 
-    public String getTargetUrl() {
-        return targetUrl;
+    public String getUrl() {
+        return url;
     }
 
     public List<String> getSupportedProtocols() {
@@ -53,8 +53,8 @@ public class Participant {
             return this;
         }
 
-        public Builder targetUrl(String targetUrl) {
-            policy.targetUrl = targetUrl;
+        public Builder url(String url) {
+            policy.url = url;
             return this;
         }
 

@@ -17,16 +17,6 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/Participant'
-  /health:
-    get:
-      tags:
-      - Health
-      operationId: healthy
-      responses:
-        default:
-          description: default response
-          content:
-            application/json: {}
 components:
   schemas:
     Participant:

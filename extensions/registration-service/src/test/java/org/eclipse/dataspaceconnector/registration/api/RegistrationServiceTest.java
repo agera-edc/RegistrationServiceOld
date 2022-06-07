@@ -28,7 +28,7 @@ class RegistrationServiceTest {
         var service = setUpRegistrationService("test-");
         assertThat(service.listParticipants()).hasSize(3);
         assertThat(service.listParticipants()).extracting(Participant::getName).containsExactlyInAnyOrder("participant1", "participant2", "participant3");
-        assertThat(service.listParticipants()).extracting(Participant::getTargetUrl).containsExactlyInAnyOrder("http://localhost:8282", "http://localhost:8283", "http://localhost:8284");
+        assertThat(service.listParticipants()).extracting(Participant::getUrl).containsExactlyInAnyOrder("http://localhost:8282", "http://localhost:8283", "http://localhost:8284");
         assertThat(service.listParticipants()).extracting(Participant::getSupportedProtocols).containsOnly(List.of("ids-multipart"));
     }
 
