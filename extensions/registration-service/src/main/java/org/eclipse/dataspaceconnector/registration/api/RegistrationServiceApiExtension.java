@@ -26,7 +26,7 @@ public class RegistrationServiceApiExtension implements ServiceExtension {
 
         var typeManager = context.getTypeManager();
         var monitor= context.getMonitor();
-        RegistrationService service = new FileBasedRegistrationService(nodeJsonPath, nodeJsonPrefix, typeManager, monitor);
-        webService.registerResource(new RegistrationApiController(service, monitor));
+        var registrationService = new FileBasedRegistrationService(nodeJsonPath, nodeJsonPrefix, typeManager, monitor);
+        webService.registerResource(new RegistrationApiController(registrationService, monitor));
     }
 }

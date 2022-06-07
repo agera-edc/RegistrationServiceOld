@@ -17,7 +17,7 @@ import java.util.stream.Collectors;
 /**
  * Implementation of registration service interface that fetches participants list from json files.
  */
-public class FileBasedRegistrationService implements RegistrationService {
+public class FileBasedRegistrationService {
 
     private final Path nodeJsonDir;
     private final String nodeJsonPrefix;
@@ -38,7 +38,11 @@ public class FileBasedRegistrationService implements RegistrationService {
         this.monitor = monitor;
     }
 
-    @Override
+    /**
+     * Lists all dataspace participants.
+     *
+     * @return list of dataspace participants.
+     */
     public List<Participant> listParticipants() {
         try (var files = Files.find(nodeJsonDir, 1, startsWithPrefix())) {
             return files
