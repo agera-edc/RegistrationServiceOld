@@ -1,33 +1,26 @@
 package org.eclipse.dataspaceconnector.registration.api.model;
 
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import com.fasterxml.jackson.databind.annotation.JsonPOJOBuilder;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
  * Dataspace participant.
  */
+@JsonDeserialize(builder = Participant.Builder.class)
 public class Participant {
-    @JsonProperty("name")
-    private final String name;
-    @JsonProperty("url")
-    private final String targetUrl;
-    @JsonProperty("supportedProtocols")
-    private final List<String> supportedProtocols;
 
-    /**
-     * Constructs a new instance of {@link Participant}
-     *
-     * @param name                  name of the participant
-     * @param targetUrl             url of the participant EDC instance
-     * @param supportedProtocols    protocols supported by the participant
-     */
-    @JsonCreator
-    public Participant(@JsonProperty("name") String name, @JsonProperty("url") String targetUrl, @JsonProperty("supportedProtocols") List<String> supportedProtocols) {
-        this.name = name;
-        this.targetUrl = targetUrl;
-        this.supportedProtocols = supportedProtocols;
+    private String name;
+    private String targetUrl;
+    private final List<String> supportedProtocols = new ArrayList<>();
+
+    private Participant() {
+    }
+
+    public String getName() {
+        return name;
     }
 
     public String getTargetUrl() {
@@ -38,7 +31,40 @@ public class Participant {
         return supportedProtocols;
     }
 
-    public String getName() {
-        return name;
+    @JsonPOJOBuilder(withPrefix = "")
+    public static class Builder {
+        private final Participant policy;
+
+        private Builder() {
+            policy = new Participant();
+        }
+
+        public static Builder newInstance() {
+            return new Builder();
+        }
+
+        public Builder supportedProtocol(String supportedProtocol) {
+            policy.supportedProtocols.add(supportedProtocol);
+            return this;
+        }
+
+        public Builder supportedProtocols(List<String> supportedProtocols) {
+            policy.supportedProtocols.addAll(supportedProtocols);
+            return this;
+        }
+
+        public Builder targetUrl(String targetUrl) {
+            policy.targetUrl = targetUrl;
+            return this;
+        }
+
+        public Builder name(String name) {
+            policy.name = name;
+            return this;
+        }
+
+        public Participant build() {
+            return policy;
+        }
     }
 }
