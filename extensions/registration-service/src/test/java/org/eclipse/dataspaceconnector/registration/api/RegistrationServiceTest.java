@@ -12,7 +12,7 @@ import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-class FileBasedRegistrationServiceTest {
+class RegistrationServiceTest {
 
     TypeManager typeManager = new TypeManager();
     Monitor monitor = new ConsoleMonitor();
@@ -33,10 +33,10 @@ class FileBasedRegistrationServiceTest {
     }
 
     @NotNull
-    private FileBasedRegistrationService setUpRegistrationService(String nodeJsonPrefix) throws Exception {
+    private RegistrationService setUpRegistrationService(String nodeJsonPrefix) throws Exception {
         var sampleFile = getClass().getClassLoader().getResource("test-participant1.json");
         assertThat(sampleFile).isNotNull();
         var nodeJsonDir = Path.of(sampleFile.toURI().getPath()).getParent();
-        return new FileBasedRegistrationService(nodeJsonDir, nodeJsonPrefix, typeManager, monitor);
+        return new RegistrationService(nodeJsonDir, nodeJsonPrefix, typeManager, monitor);
     }
 }

@@ -1,5 +1,5 @@
 This directory contains JSON files with the registry participants.
-The files are used by the FileBasedRegistrationService.
+The files are used by the RegistrationService.
 
 This directory is provided by default in the docker-compose file and used in system tests.
 

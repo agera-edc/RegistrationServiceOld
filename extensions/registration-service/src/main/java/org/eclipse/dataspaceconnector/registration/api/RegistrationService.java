@@ -17,7 +17,7 @@ import java.util.stream.Collectors;
 /**
  * Implementation of registration service interface that fetches participants list from json files.
  */
-public class FileBasedRegistrationService {
+public class RegistrationService {
 
     private final Path nodeJsonDir;
     private final String nodeJsonPrefix;
@@ -25,14 +25,14 @@ public class FileBasedRegistrationService {
     private final Monitor monitor;
 
     /**
-     * Constructs an instance of {@link FileBasedRegistrationService}
+     * Constructs an instance of {@link RegistrationService}
      *
      * @param nodeJsonDir    directory containing source JSON files
      * @param nodeJsonPrefix prefix to filter source JSON files on
      * @param typeManager    type manager service
      * @param monitor        monitor service
      */
-    public FileBasedRegistrationService(Path nodeJsonDir, String nodeJsonPrefix, TypeManager typeManager, Monitor monitor) {
+    public RegistrationService(Path nodeJsonDir, String nodeJsonPrefix, TypeManager typeManager, Monitor monitor) {
         this.nodeJsonDir = nodeJsonDir;
         this.nodeJsonPrefix = nodeJsonPrefix;
         this.typeManager = typeManager;

@@ -19,7 +19,7 @@ import java.util.List;
 @Path("/registry")
 public class RegistrationApiController {
 
-    private final FileBasedRegistrationService service;
+    private final RegistrationService service;
     private final Monitor monitor;
 
     /**
@@ -28,7 +28,7 @@ public class RegistrationApiController {
      * @param service service handling the registration service logic.
      * @param monitor logging monitor.
      */
-    public RegistrationApiController(FileBasedRegistrationService service, Monitor monitor) {
+    public RegistrationApiController(RegistrationService service, Monitor monitor) {
         this.service = service;
         this.monitor = monitor;
     }
