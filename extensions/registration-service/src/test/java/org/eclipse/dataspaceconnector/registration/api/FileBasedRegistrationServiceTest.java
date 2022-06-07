@@ -29,7 +29,7 @@ class FileBasedRegistrationServiceTest {
         assertThat(service.listParticipants()).hasSize(3);
         assertThat(service.listParticipants()).extracting(Participant::getName).containsExactlyInAnyOrder("participant1", "participant2", "participant3");
         assertThat(service.listParticipants()).extracting(Participant::getTargetUrl).containsExactlyInAnyOrder("http://localhost:8282", "http://localhost:8283", "http://localhost:8284");
-        assertThat(service.listParticipants()).extracting(Participant::getSupportedProtocols).contains(List.of("ids-multipart"));
+        assertThat(service.listParticipants()).extracting(Participant::getSupportedProtocols).containsOnly(List.of("ids-multipart"));
     }
 
     @NotNull
