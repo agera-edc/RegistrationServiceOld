@@ -7,10 +7,11 @@ paths:
     get:
       tags:
       - Registry
+      description: Gets all dataspace participants.
       operationId: listParticipants
       responses:
         default:
-          description: Gets all dataspace participants.
+          description: Dataspace participants.
           content:
             application/json:
               schema:

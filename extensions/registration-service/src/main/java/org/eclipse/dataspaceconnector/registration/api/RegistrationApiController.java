@@ -37,16 +37,10 @@ public class RegistrationApiController {
         this.monitor = monitor;
     }
 
-    /**
-     * Lists all dataspace participants.
-     *
-     * @return list of dataspace participants.
-     */
     @Path("/participants")
     @GET
-    @Operation(responses = {
-            @ApiResponse(description = "Gets all dataspace participants.")
-    })
+    @Operation(description = "Gets all dataspace participants.",
+            responses = {@ApiResponse(description = "Dataspace participants.")})
     public List<Participant> listParticipants() {
         monitor.info("List all participants of the dataspace.");
         return service.listParticipants();
