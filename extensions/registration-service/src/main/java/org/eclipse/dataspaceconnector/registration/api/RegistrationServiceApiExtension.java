@@ -1,6 +1,5 @@
 package org.eclipse.dataspaceconnector.registration.api;
 
-import org.eclipse.dataspaceconnector.registration.api.health.HealthApiController;
 import org.eclipse.dataspaceconnector.spi.WebService;
 import org.eclipse.dataspaceconnector.spi.system.Inject;
 import org.eclipse.dataspaceconnector.spi.system.ServiceExtension;
@@ -24,10 +23,8 @@ public class RegistrationServiceApiExtension implements ServiceExtension {
         var nodeJsonPath = Path.of(Objects.requireNonNull(propOrEnv("NODES_JSON_DIR", "registry"), "Env var NODES_JSON_DIR is null"));
         var nodeJsonPrefix = Objects.requireNonNull(propOrEnv("NODES_JSON_FILES_PREFIX", "registry-"), "Env var NODES_JSON_FILES_PREFIX is null");
 
-        webService.registerResource(new HealthApiController());
-
         var typeManager = context.getTypeManager();
-        var monitor= context.getMonitor();
+        var monitor = context.getMonitor();
         var registrationService = new FileBasedRegistrationService(nodeJsonPath, nodeJsonPrefix, typeManager, monitor);
         webService.registerResource(new RegistrationApiController(registrationService, monitor));
     }
