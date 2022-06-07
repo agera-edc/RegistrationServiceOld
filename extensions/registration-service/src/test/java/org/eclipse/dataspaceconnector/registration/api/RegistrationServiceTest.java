@@ -36,7 +36,7 @@ class RegistrationServiceTest {
     private RegistrationService setUpRegistrationService(String nodeJsonPrefix) throws Exception {
         var sampleFile = getClass().getClassLoader().getResource("test-participant1.json");
         assertThat(sampleFile).isNotNull();
-        var nodeJsonDir = Path.of(sampleFile.toURI().getPath()).getParent();
+        var nodeJsonDir = Path.of(sampleFile.toURI()).getParent();
         return new RegistrationService(nodeJsonDir, nodeJsonPrefix, typeManager, monitor);
     }
 }
