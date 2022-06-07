@@ -9,6 +9,7 @@ import java.time.Duration;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.awaitility.Awaitility.await;
 
+@IntegrationTest
 public class RegistrationApiClientTest {
 
     static final String API_URL = "http://localhost:8181/api";

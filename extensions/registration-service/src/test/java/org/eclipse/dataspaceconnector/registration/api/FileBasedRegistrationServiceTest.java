@@ -18,13 +18,13 @@ class FileBasedRegistrationServiceTest {
     Monitor monitor = new ConsoleMonitor();
 
     @Test
-    void listParticipants_empty() {
+    void listParticipants_empty() throws Exception {
         var service = setUpRegistrationService("fakeprefix");
         assertThat(service.listParticipants()).isEmpty();
     }
 
     @Test
-    void listParticipants_fromFiles() {
+    void listParticipants_fromFiles() throws Exception {
         var service = setUpRegistrationService("test-");
         assertThat(service.listParticipants()).hasSize(3);
         assertThat(service.listParticipants()).extracting(Participant::getName).containsExactlyInAnyOrder("participant1", "participant2", "participant3");
@@ -33,10 +33,10 @@ class FileBasedRegistrationServiceTest {
     }
 
     @NotNull
-    private FileBasedRegistrationService setUpRegistrationService(String nodeJsonPrefix1) {
+    private FileBasedRegistrationService setUpRegistrationService(String nodeJsonPrefix) throws Exception {
         var sampleFile = getClass().getClassLoader().getResource("test-participant1.json");
         assertThat(sampleFile).isNotNull();
-        var nodeJsonDir = Path.of(sampleFile.getPath()).getParent();
-        return new FileBasedRegistrationService(nodeJsonDir, nodeJsonPrefix1, typeManager, monitor);
+        var nodeJsonDir = Path.of(sampleFile.toURI().getPath()).getParent();
+        return new FileBasedRegistrationService(nodeJsonDir, nodeJsonPrefix, typeManager, monitor);
     }
 }
