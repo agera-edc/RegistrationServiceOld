@@ -11,7 +11,7 @@ import org.eclipse.dataspaceconnector.spi.monitor.Monitor;
 import java.util.List;
 
 /**
- * Simple API controller to test service is available.
+ * Registration Service API controller to manage dataspace participants.
  */
 @Tag(name = "Registry")
 @Produces({"application/json"})
@@ -19,7 +19,7 @@ import java.util.List;
 @Path("/registry")
 public class RegistrationApiController {
 
-    private final RegistrationService service;
+    private final FileBasedRegistrationService service;
     private final Monitor monitor;
 
     /**
@@ -28,11 +28,16 @@ public class RegistrationApiController {
      * @param service   service handling the registration service logic.
      * @param monitor   logging monitor.
      */
-    public RegistrationApiController(RegistrationService service, Monitor monitor) {
+    public RegistrationApiController(FileBasedRegistrationService service, Monitor monitor) {
         this.service = service;
         this.monitor = monitor;
     }
 
+    /**
+     * Lists all dataspace participants.
+     *
+     * @return list of dataspace participants.
+     */
     @Path("/participants")
     @GET
     public List<Participant> listParticipants() {
