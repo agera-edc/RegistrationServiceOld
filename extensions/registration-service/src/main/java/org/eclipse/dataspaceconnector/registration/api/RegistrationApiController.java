@@ -25,8 +25,8 @@ public class RegistrationApiController {
     /**
      * Constructs an instance of {@link RegistrationApiController}
      *
-     * @param service   service handling the registration service logic.
-     * @param monitor   logging monitor.
+     * @param service service handling the registration service logic.
+     * @param monitor logging monitor.
      */
     public RegistrationApiController(FileBasedRegistrationService service, Monitor monitor) {
         this.service = service;

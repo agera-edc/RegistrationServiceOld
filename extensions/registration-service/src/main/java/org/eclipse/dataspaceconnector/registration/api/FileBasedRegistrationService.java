@@ -26,6 +26,7 @@ public class FileBasedRegistrationService {
 
     /**
      * Constructs an instance of {@link FileBasedRegistrationService}
+     *
      * @param nodeJsonDir    directory containing source JSON files
      * @param nodeJsonPrefix prefix to filter source JSON files on
      * @param typeManager    type manager service
