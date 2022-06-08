@@ -1,6 +1,5 @@
 plugins {
     `java-library`
-    `java-test-fixtures`
     id("io.swagger.core.v3.swagger-gradle-plugin")
 }
 
@@ -19,6 +18,6 @@ dependencies {
     testImplementation("org.junit.jupiter:junit-jupiter-api:${jupiterVersion}")
     testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:${jupiterVersion}")
     testImplementation("org.mockito:mockito-core:${mockitoVersion}")
-    testFixturesApi("com.github.javafaker:javafaker:${faker}")
+    testImplementation("com.github.javafaker:javafaker:${faker}")
 }
 
