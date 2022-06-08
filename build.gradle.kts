@@ -5,14 +5,7 @@ plugins {
 }
 
 val swagger: String by project
-val rsApi : String by project
-
-
-publishing {
-    repositories {
-        mavenLocal()
-    }
-}
+val rsApi: String by project
 
 allprojects {
     repositories {
