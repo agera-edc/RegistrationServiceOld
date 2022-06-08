@@ -1,5 +1,6 @@
 plugins {
     `java-library`
+    `java-test-fixtures`
     id("io.swagger.core.v3.swagger-gradle-plugin")
 }
 
@@ -8,6 +9,8 @@ val edcVersion: String by project
 val edcGroup: String by project
 val jupiterVersion: String by project
 val assertj: String by project
+val mockitoVersion: String by project
+val faker: String by project
 
 dependencies {
     implementation("${edcGroup}:core:${edcVersion}")
@@ -15,5 +18,7 @@ dependencies {
     testImplementation("org.assertj:assertj-core:${assertj}")
     testImplementation("org.junit.jupiter:junit-jupiter-api:${jupiterVersion}")
     testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:${jupiterVersion}")
+    testImplementation("org.mockito:mockito-core:${mockitoVersion}")
+    testFixturesApi("com.github.javafaker:javafaker:${faker}")
 }
 

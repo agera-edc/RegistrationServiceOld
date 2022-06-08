@@ -3,6 +3,21 @@ info:
   title: Eclipse Dataspace Connector Registration Service
   version: 0.0.1
 paths:
+  /registry/participant:
+    post:
+      tags:
+      - Registry
+      summary: Asynchronously request to add a dataspace participant
+      description: yy
+      operationId: addParticipant
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Participant'
+      responses:
+        "204":
+          description: "No content if 'Prefer: return-no-content' was specified"
   /registry/participants:
     get:
       tags:
