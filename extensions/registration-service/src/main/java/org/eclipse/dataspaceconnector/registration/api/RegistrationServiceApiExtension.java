@@ -5,6 +5,11 @@ import org.eclipse.dataspaceconnector.spi.system.Inject;
 import org.eclipse.dataspaceconnector.spi.system.ServiceExtension;
 import org.eclipse.dataspaceconnector.spi.system.ServiceExtensionContext;
 
+import java.nio.file.Path;
+import java.util.Objects;
+
+import static org.eclipse.dataspaceconnector.common.configuration.ConfigurationFunctions.propOrEnv;
+
 /**
  * EDC extension to boot the services used by the Registration Service.
  */
