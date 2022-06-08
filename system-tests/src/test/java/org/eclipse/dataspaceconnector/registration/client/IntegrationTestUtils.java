@@ -3,8 +3,8 @@ package org.eclipse.dataspaceconnector.registration.client;
 import com.github.javafaker.Faker;
 import org.eclipse.dataspaceconnector.registration.client.models.Participant;
 
-public class TestUtils {
-    private TestUtils() {
+class IntegrationTestUtils {
+    private IntegrationTestUtils() {
     }
 
     static final Faker FAKER = new Faker();

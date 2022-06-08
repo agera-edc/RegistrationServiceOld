@@ -1,6 +1,5 @@
 package org.eclipse.dataspaceconnector.registration.api;
 
-import com.github.javafaker.Faker;
 import org.eclipse.dataspaceconnector.registration.api.model.Participant;
 import org.eclipse.dataspaceconnector.spi.monitor.ConsoleMonitor;
 import org.eclipse.dataspaceconnector.spi.monitor.Monitor;

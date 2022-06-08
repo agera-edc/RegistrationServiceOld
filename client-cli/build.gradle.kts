@@ -33,10 +33,10 @@ tasks.withType<JavaCompile> {
 }
 
 application {
-    mainClass.set("org.eclipse.dataspaceconnector.registration.cli.CheckSum")
+    mainClass.set("org.eclipse.dataspaceconnector.registration.cli.RegistrationServiceCli")
 }
 
 tasks.withType<com.github.jengelman.gradle.plugins.shadow.tasks.ShadowJar> {
     mergeServiceFiles()
-    archiveFileName.set("registration-cli.jar")
+    archiveFileName.set("registration-service-cli.jar")
 }
