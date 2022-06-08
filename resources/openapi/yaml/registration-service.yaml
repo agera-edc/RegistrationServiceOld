@@ -7,8 +7,7 @@ paths:
     post:
       tags:
       - Registry
-      summary: Asynchronously request to add a dataspace participant
-      description: yy
+      description: Asynchronously request to add a dataspace participant.
       operationId: addParticipant
       requestBody:
         content:
@@ -17,15 +16,16 @@ paths:
               $ref: '#/components/schemas/Participant'
       responses:
         "204":
-          description: "No content if 'Prefer: return-no-content' was specified"
+          description: No content
   /registry/participants:
     get:
       tags:
       - Registry
+      description: Gets all dataspace participants.
       operationId: listParticipants
       responses:
         default:
-          description: Gets all dataspace participants.
+          description: Dataspace participants.
           content:
             application/json:
               schema:
