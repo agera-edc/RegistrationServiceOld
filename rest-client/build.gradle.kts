@@ -19,6 +19,7 @@
 plugins {
     java
     id("org.openapi.generator") version "5.4.0"
+    `maven-publish`
 }
 
 // Configure OpenAPI Generator
