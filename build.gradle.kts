@@ -1,10 +1,18 @@
 plugins {
     java
     `java-library`
+    `maven-publish`
 }
 
 val swagger: String by project
 val rsApi : String by project
+
+
+publishing {
+    repositories {
+        mavenLocal()
+    }
+}
 
 allprojects {
     repositories {
