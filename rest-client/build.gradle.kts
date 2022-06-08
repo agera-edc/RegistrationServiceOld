@@ -69,3 +69,12 @@ dependencies {
     implementation("org.openapitools:jackson-databind-nullable:0.2.1")
     implementation("jakarta.annotation:jakarta.annotation-api:1.3.5")
 }
+
+publishing {
+    publications {
+        create<MavenPublication>("registration-service-api") {
+            artifactId = "registration-service-api"
+            from(components["java"])
+        }
+    }
+}
