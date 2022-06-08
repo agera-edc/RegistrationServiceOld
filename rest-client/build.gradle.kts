@@ -73,8 +73,8 @@ dependencies {
 
 publishing {
     publications {
-        create<MavenPublication>("registration-service-api") {
-            artifactId = "registration-service-api"
+        create<MavenPublication>("registration-service-client") {
+            artifactId = "registration-service-client"
             from(components["java"])
         }
     }
