@@ -33,7 +33,7 @@ jobs:
         run: ./gradlew :launcher:shadowJar
 
       - name: 'Run application in docker-compose'
-        run: docker-compose up --build --detach
+        run: docker-compose up --build --wait
         timeout-minutes: 10
 
       - name: 'Unit and system tests'
