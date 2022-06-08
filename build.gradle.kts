@@ -1,13 +1,15 @@
 plugins {
     java
     `java-library`
-    `maven-publish`
 }
 
 val swagger: String by project
 val rsApi: String by project
 
 allprojects {
+    version = "1.0.0-SNAPSHOT"
+    group = "org.eclipse.dataspaceconnector"
+
     repositories {
         mavenCentral()
         mavenLocal()

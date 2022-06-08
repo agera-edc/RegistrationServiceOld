@@ -75,8 +75,6 @@ publishing {
     publications {
         create<MavenPublication>("registration-service-client") {
             artifactId = "registration-service-client"
-            version = "1.0.0-SNAPSHOT"
-            group = "org.eclipse.dataspaceconnector"
             from(components["java"])
         }
     }
