@@ -2,6 +2,9 @@ package org.eclipse.dataspaceconnector.registration.client;
 
 import org.eclipse.dataspaceconnector.registration.cli.RegistrationServiceCli;
 import org.eclipse.dataspaceconnector.registration.client.api.RegistryApi;
+import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import org.eclipse.dataspaceconnector.registration.cli.RegistrationServiceCli;
 import org.eclipse.dataspaceconnector.registration.client.models.Participant;
 import org.junit.jupiter.api.Test;
 import picocli.CommandLine;

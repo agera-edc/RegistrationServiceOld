@@ -21,11 +21,13 @@ plugins {
 
 val edcVersion: String by project
 val edcGroup: String by project
+val jacksonVersion: String by project
 
 dependencies {
-    api(project(":rest-client"))
+    implementation("com.fasterxml.jackson.core:jackson-databind:$jacksonVersion")
 
     api("info.picocli:picocli:4.6.3")
+    api(project(":rest-client"))
     annotationProcessor("info.picocli:picocli-codegen:4.6.3")
 }
 
