@@ -24,15 +24,11 @@ val edcGroup: String by project
 val jacksonVersion: String by project
 
 dependencies {
-    implementation("com.fasterxml.jackson.core:jackson-databind:$jacksonVersion")
-
     api("info.picocli:picocli:4.6.3")
-    api(project(":rest-client"))
     annotationProcessor("info.picocli:picocli-codegen:4.6.3")
-}
 
-tasks.withType<JavaCompile> {
-    options.compilerArgs.add("-Aproject=${project.group}/${project.name}")
+    api(project(":rest-client"))
+    implementation("com.fasterxml.jackson.core:jackson-databind:$jacksonVersion")
 }
 
 application {
