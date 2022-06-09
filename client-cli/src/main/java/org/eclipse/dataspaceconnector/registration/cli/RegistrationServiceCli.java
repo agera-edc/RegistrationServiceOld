@@ -8,7 +8,6 @@ import picocli.CommandLine.Command;
         subcommands = {
                 ParticipantsCommand.class
         })
-@SuppressWarnings("InstantiationOfUtilityClass")
 public class RegistrationServiceCli {
     @CommandLine.Option(names = "-s", required = true, description = "Registration service URL")
     String service;

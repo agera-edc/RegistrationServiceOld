@@ -5,13 +5,11 @@ import com.fasterxml.jackson.databind.SerializationFeature;
 import org.eclipse.dataspaceconnector.registration.client.ApiClient;
 import org.eclipse.dataspaceconnector.registration.client.ApiClientFactory;
 import org.eclipse.dataspaceconnector.registration.client.api.RegistryApi;
-import picocli.CommandLine;
 import picocli.CommandLine.Command;
+import picocli.CommandLine.Model.CommandSpec;
 import picocli.CommandLine.ParentCommand;
 import picocli.CommandLine.Spec;
-import picocli.CommandLine.Model.*;
 
-import java.io.PrintStream;
 import java.io.PrintWriter;
 import java.util.concurrent.Callable;
 

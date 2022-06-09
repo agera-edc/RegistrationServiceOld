@@ -31,8 +31,9 @@ public class RegistrationApiClientTest {
         CommandLine cmd = new CommandLine(app);
 
         var strings = new ArrayList<String>();
-        strings.add("register");
         strings.addAll(List.of("-s", API_URL));
+        strings.add("participants");
+        strings.add("register");
         strings.addAll(List.of("-n", Objects.requireNonNull(participant.getName())));
         strings.addAll(List.of("-u", Objects.requireNonNull(participant.getUrl())));
         Objects.requireNonNull(participant.getSupportedProtocols()).forEach(p -> strings.addAll(List.of("-p", p)));
