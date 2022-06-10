@@ -18,8 +18,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 public class RegistrationApiClientTest {
     @Test
     void listParticipants() throws Exception {
-        RegistrationServiceCli app = new RegistrationServiceCli();
-        CommandLine cmd = new CommandLine(app);
+        CommandLine cmd = RegistrationServiceCli.getCommandLine();
 
         StringWriter sw = new StringWriter();
         cmd.setOut(new PrintWriter(sw));
