@@ -20,12 +20,9 @@ public class RegistrationServiceApiExtension implements ServiceExtension {
 
     @Override
     public void initialize(ServiceExtensionContext context) {
-        var nodeJsonPath = Path.of(Objects.requireNonNull(propOrEnv("NODES_JSON_DIR", "registry"), "Env var NODES_JSON_DIR is null"));
-        var nodeJsonPrefix = Objects.requireNonNull(propOrEnv("NODES_JSON_FILES_PREFIX", "registry-"), "Env var NODES_JSON_FILES_PREFIX is null");
-
-        var typeManager = context.getTypeManager();
         var monitor = context.getMonitor();
-        var registrationService = new RegistrationService(nodeJsonPath, nodeJsonPrefix, typeManager, monitor);
-        webService.registerResource(new RegistrationApiController(registrationService, monitor));
+        var participantStore = new InMemoryParticipantStore();
+        var registrationService = new RegistrationService(monitor, participantStore);
+        webService.registerResource(new RegistrationApiController(registrationService));
     }
 }
