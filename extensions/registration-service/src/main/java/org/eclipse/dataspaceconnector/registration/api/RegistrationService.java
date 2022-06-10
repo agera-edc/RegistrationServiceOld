@@ -30,7 +30,7 @@ public class RegistrationService {
     }
 
     public void addParticipant(Participant participant) {
-        monitor.info("Adding a participants in the dataspace.");
+        monitor.info("Adding a participant in the dataspace.");
         participantStore.addParticipant(participant);
     }
 }
