@@ -14,7 +14,7 @@ import java.util.List;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-// @IntegrationTest
+@IntegrationTest
 public class RegistrationApiClientTest {
     @Test
     void listParticipants() throws Exception {
